@@ -37,22 +37,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button01"
-            android:text="button01"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button02"
-            android:text="button02"
-            android:background="@color/white"
-            android:textColor="@color/black"/>
-
     </LinearLayout>
 
 

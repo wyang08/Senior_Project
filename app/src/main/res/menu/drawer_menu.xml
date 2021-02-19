@@ -3,9 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
+
         <item android:id="@+id/nav_personal_info"
             android:icon="@drawable/ic_personal_info"
             android:title="Profile" />
+        <item
+            android:id="@+id/health_alert"
+            android:icon="@drawable/ic_personal_info"
+            android:title="Health Alert" />
+
+        <item
+            android:id="@+id/pdf"
+            android:icon="@drawable/ic_personal_info"
+            android:title="PDF Submission" />
+
+        <item
+            android:id="@+id/question"
+            android:icon="@drawable/ic_personal_info"
+            android:title="Questionnair/Symptom Checker" />
+
+
     </group>
 
 </menu>
