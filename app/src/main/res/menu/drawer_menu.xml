@@ -8,17 +8,17 @@
             android:icon="@drawable/ic_personal_info"
             android:title="Profile" />
         <item
-            android:id="@+id/health_alert"
+            android:id="@+id/nav_health_alert"
             android:icon="@drawable/ic_personal_info"
             android:title="Health Alert" />
 
         <item
-            android:id="@+id/pdf"
+            android:id="@+id/nav_pdf"
             android:icon="@drawable/ic_personal_info"
             android:title="PDF Submission" />
 
         <item
-            android:id="@+id/question"
+            android:id="@+id/nav_questionnair"
             android:icon="@drawable/ic_personal_info"
             android:title="Questionnair/Symptom Checker" />
 
