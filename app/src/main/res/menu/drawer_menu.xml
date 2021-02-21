@@ -22,7 +22,7 @@
             android:icon="@drawable/ic_personal_info"
             android:title="Questionnair/Symptom Checker" />
 
-
     </group>
+
 
 </menu>
