@@ -24,5 +24,15 @@
 
     </group>
 
+    <item android:title="User Portal">
+        <menu>
+            <item
+                android:id="@+id/nav_log_out"
+                android:icon="@drawable/ic_baseline_login_24"
+                android:title="Sign Out" />
+        </menu>
+
+    </item>
+
 
 </menu>
