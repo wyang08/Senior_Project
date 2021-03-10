@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/background_dark">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PDFFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
 
-    <TextView
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+    <EditText android:id="@+id/editView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PDF Submission, Make Your Design"
+        android:text="Upload a copy of your text result here"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:textSize="30sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_centerInParent="true"/>
+
+    <Button android:id="@+id/submit_pdf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editView"
+        android:layout_centerVertical="@+id/editView"
+        android:text="Upload File"
+        android:textSize="20sp"
+        android:textColor="@color/white" />
+
+    </FrameLayout>
+
 
 </RelativeLayout>

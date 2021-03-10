@@ -4,12 +4,13 @@ plugins {
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "29.0.3"
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
         applicationId "com.programming_concept.senior_project"
         minSdkVersion 16
         targetSdkVersion 28
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -28,6 +29,12 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.firebase:firebase-auth:20.0.3'
+
+    implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation 'com.google.firebase:firebase-storage:19.2.1'
+    implementation 'com.google.firebase:firebase-firestore:22.1.1'
     def nav_version = "2.3.3"
 
     implementation "androidx.navigation:navigation-fragment:$nav_version"

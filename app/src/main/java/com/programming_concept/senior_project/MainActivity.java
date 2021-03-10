@@ -3,6 +3,8 @@ package com.programming_concept.senior_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,10 +20,16 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private GoogleSignInClient mGoogleSignInClient;
+
+    EditText editView;
+    Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        editView = findViewById(R.id.editView);
+        btn = findViewById(R.id.submit_pdf);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
