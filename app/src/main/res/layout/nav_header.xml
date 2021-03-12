@@ -19,13 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Nick name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:id="@+id/nav_name"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="einfo@emial.com"
         android:id="@+id/nav_email"/>
 
 </LinearLayout>
