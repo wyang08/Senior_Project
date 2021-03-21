@@ -5,4 +5,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="btn1">BTN1</string>
     <string name="server_client_id">722411778653-275u4uoq6kla942t00pkreolp2a727rg.apps.googleusercontent.com</string>
+    <string name="upload_pdf_here">Upload PDF Here</string>
+    <string name="upload_file">Upload File</string>
 </resources>

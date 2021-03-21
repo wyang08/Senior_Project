@@ -1,11 +1,13 @@
 package com.programming_concept.senior_project;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +29,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 
+import static android.app.Activity.RESULT_OK;
+
 public class PDFFragment extends Fragment {
 
     EditText editView;
@@ -38,18 +42,16 @@ public class PDFFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
         View pdfFragment = inflater.inflate(R.layout.fragmnet_pdf, container, false);
 
 
         editView = pdfFragment.findViewById(R.id.editView);
-        btn = (Button) pdfFragment.findViewById(R.id.submit_pdf);
+        btn = pdfFragment.findViewById(R.id.submit_pdf);
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference("uploadPDF");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Senior Project");
 
         btn.setEnabled(false);
-
 
         editView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,9 +62,9 @@ public class PDFFragment extends Fragment {
         return pdfFragment;
     }
 
-        private void selectPDF() {
+    private void selectPDF() {
             Intent intent = new Intent();
-            intent.setType("covid_test/pdf");
+            intent.setType("Covid_test/pdf");
             intent.setAction(intent.ACTION_GET_CONTENT);
             startActivityForResult(Intent.createChooser(intent, "PDF File Select"), 12);
 
@@ -76,17 +78,12 @@ public class PDFFragment extends Fragment {
                 btn.setEnabled(true);
                 editView.setText(data.getDataString().substring(data.getDataString().lastIndexOf("/") + 1));
 
-                btn.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick( View view){
-                        uploadPDFFileFirebase(data.getData());
-                    }
-                });
+                btn.setOnClickListener(view -> uploadPDFFileFirebase(data.getData()));
             }
         }
         private void uploadPDFFileFirebase(Uri data) {
 
-        final ProgressDialog progressDialog = new ProgressDialog(this);
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("File is uploading...");
         progressDialog.show();
 
@@ -102,7 +99,7 @@ public class PDFFragment extends Fragment {
 
                         putPDF putPDF = new putPDF(editView.getText().toString(), uri.toString());
                         databaseReference.child(databaseReference.push().getKey()).setValue(putPDF);
-                        Toast.makeText(PDFFragment.this, "File Upload", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "File Upload", Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

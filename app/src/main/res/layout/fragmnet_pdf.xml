@@ -7,33 +7,28 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="4dp"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground">
+
 
     <EditText android:id="@+id/editView"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Upload a copy of your text result here"
-        android:layout_centerHorizontal="true"
+        android:hint="@string/upload_pdf_here"
         android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:textColor="@color/black"
-        android:layout_centerInParent="true"/>
+        android:textStyle="bold"
+        android:autofillHints=""/>
 
-    <Button android:id="@+id/submit_pdf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editView"
-        android:layout_centerVertical="@+id/editView"
-        android:text="Upload File"
-        android:textSize="20sp"
-        android:textColor="@color/white" />
-
-    </FrameLayout>
+        <Button
+            android:id="@+id/submit_pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editView"
+            android:layout_centerHorizontal="true"
+            android:text="@string/upload_file"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
 
 </RelativeLayout>
