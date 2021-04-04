@@ -47,6 +47,7 @@ public class ProfileFragment extends Fragment {
             email.setText(signInAccount.getEmail());
         }
 
+
         WindowManager manager = (WindowManager) getActivity().getSystemService(WINDOW_SERVICE);
 
         Display display = manager.getDefaultDisplay();

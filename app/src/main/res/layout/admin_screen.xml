@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/user_vaccine"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/user_date"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btnadd"
+        android:layout_width="194dp"
+        android:layout_height="61dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"
+        android:text="Upload" />
+    <Button
+        android:id="@+id/btnskip"
+        android:layout_width="194dp"
+        android:layout_height="61dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="560dp"
+        android:layout_centerHorizontal="true"
+        android:text="Skip" />
+
+
+</RelativeLayout>

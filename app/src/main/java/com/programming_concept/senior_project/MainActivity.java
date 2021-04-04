@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
     private GoogleSignInClient mGoogleSignInClient;
+    GoogleApiClient mGoogleApiClient;
+    private FirebaseAuth mAuth;
 
     EditText editView;
     Button btn;
@@ -78,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_log_out:
                 signOut();
+//                Intent intent = new Intent(getApplicationContext(), Login.class);
+//                startActivity(intent);
                 break;
         }
 
@@ -95,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void signOut() {
         FirebaseAuth.getInstance().signOut();
+////        GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder
+////                (GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut();
         Intent intent = new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
     }

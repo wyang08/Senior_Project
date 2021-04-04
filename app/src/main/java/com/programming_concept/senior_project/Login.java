@@ -3,6 +3,7 @@ package com.programming_concept.senior_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,12 +26,14 @@ public class Login extends AppCompatActivity{
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 1;
     private FirebaseAuth mAuth;
+    private TextView email;
 
     @Override
     protected void onStart() {
         super.onStart();
 
         FirebaseUser user = mAuth.getCurrentUser();
+
         if(user != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
@@ -94,8 +97,19 @@ public class Login extends AppCompatActivity{
                         if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
+
+                            //if login account is admin account
+                            String email = user.getEmail();
+
+                            if (email.equals("wentaoyang424211232@gmail.com")) {
+                                Intent intent = new Intent(getApplicationContext(), AdminScreen.class);
+                                startActivity(intent);
+                            }
+                            //else
+                            else {
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
                         } else {
                             Toast.makeText(Login.this, "Sorry auth Failed", Toast.LENGTH_SHORT).show();
                         }
