@@ -53,7 +53,7 @@ public class PDFFragment extends Fragment {
 
         btn.setEnabled(false);
 
-        editView.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectPDF();
@@ -64,8 +64,8 @@ public class PDFFragment extends Fragment {
 
     private void selectPDF() {
             Intent intent = new Intent();
-            intent.setType("Covid_test/pdf");
-            intent.setAction(intent.ACTION_GET_CONTENT);
+            intent.setType("*/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(Intent.createChooser(intent, "PDF File Select"), 12);
 
         }
