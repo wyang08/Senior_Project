@@ -8,7 +8,7 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/header1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Questionnaire"
@@ -22,18 +22,18 @@
         app:layout_constraintVertical_bias="0.028" />
 
     <RadioButton
-        android:id="@+id/radioButton"
+        android:id="@+id/response1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="196dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="200dp"
         android:text="Yes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioButton
-        android:id="@+id/radioButton2"
+        android:id="@+id/response2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Question1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
