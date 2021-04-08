@@ -13,10 +13,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,15 +31,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
 
-    EditText editView;
-    Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        editView = findViewById(R.id.editView);
-        btn = findViewById(R.id.submit_pdf);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -50,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
 
-
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
                     new ProfileFragment()).commit();
@@ -62,10 +62,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_personal_info:
-                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
-                         new ProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
+                        new ProfileFragment()).commit();
                 break;
             case R.id.nav_health_alert:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 signOut();
 //                Intent intent = new Intent(getApplicationContext(), Login.class);
 //                startActivity(intent);
+//                GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder
+//                        (GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut();
                 break;
         }
 
@@ -99,12 +101,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void signOut() {
-        FirebaseAuth.getInstance().signOut();
+//        FirebaseAuth.getInstance().signOut();
 ////        GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder
 ////                (GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut();
-        Intent intent = new Intent(getApplicationContext(), Login.class);
-        startActivity(intent);
+//        Intent intent = new Intent(getApplicationContext(), Login.class);
+//        startActivity(intent);
+
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
+//        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(this, gso);
+//        googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    FirebaseAuth.getInstance().signOut();
+//                    Intent intent = new Intent(getApplicationContext(), Login.class);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
+        GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut().
+                addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseAuth.getInstance().signOut();
+                            Intent intent = new Intent(getApplicationContext(), Login.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
     }
-
-
 }

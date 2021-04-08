@@ -17,7 +17,7 @@ public class QuestionnaireFagment extends Fragment {
     RadioButton response1, response2;
     TextView header1, Question;
 
-    private Questions aQuestions = new Questions();
+//    private Questions aQuestions = new Questions();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
