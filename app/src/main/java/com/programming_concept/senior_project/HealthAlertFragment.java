@@ -61,10 +61,10 @@ public class HealthAlertFragment extends Fragment {
 
     private void setUserInfo(){
 
-        usersList.add(new User("Francis"));
-        usersList.add(new User("Wentao"));
-        usersList.add(new User("David"));
-        usersList.add(new User("Shane"));
-        usersList.add(new User("Robert"));
+        usersList.add(new User("Alert01"));
+        usersList.add(new User("Alert02"));
+        usersList.add(new User("Alert03"));
+        usersList.add(new User("Alert04"));
+        usersList.add(new User("Alert05"));
     }
 }
