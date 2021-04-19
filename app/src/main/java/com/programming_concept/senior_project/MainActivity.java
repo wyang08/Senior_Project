@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_health_alert:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
-                        new HealthAlertFragment()).commit();
+                        new HealthAlertActivity2()).commit();
                 break;
             case R.id.nav_pdf:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
