@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_coronavirus_24"
+        android:src="@mipmap/ic_launcher_round"
         tools:ignore="VectorDrawableCompat" />
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="474dp"
         android:layout_marginBottom="238dp"
-        android:text="NYTT"
+        android:text="NYTT: New York Tech Tracer"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
