@@ -20,15 +20,29 @@
         android:textStyle="bold"
         android:autofillHints=""/>
 
-        <Button
-            android:id="@+id/submit_pdf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editView"
-            android:layout_centerHorizontal="true"
-            android:text="@string/upload_file"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+    <Button
+        android:id="@+id/submit_pdf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editView"
+        android:layout_centerHorizontal="true"
+        android:text="@string/upload_file"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnRead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="121dp"
+        android:layout_marginBottom="166dp"
+        android:text="@string/retrive_file"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:onClick="retrievePDF"/>
 
 
 </RelativeLayout>

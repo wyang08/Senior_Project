@@ -53,18 +53,20 @@ public class HealthAlertFragment extends Fragment {
             @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent(getActivity().getApplicationContext(), HealthAlertActivity.class);
-                intent.putExtra("username", usersList.get(position).getUsername());
+                intent.putExtra("username", usersList.get(position).getStudentName());
                 startActivity(intent);
             }
         };
     }
 
     private void setUserInfo(){
+        //user has more parameters currently
+        //username was changed to studentName
 
-        usersList.add(new User("Alert01"));
-        usersList.add(new User("Alert02"));
-        usersList.add(new User("Alert03"));
-        usersList.add(new User("Alert04"));
-        usersList.add(new User("Alert05"));
+//        usersList.add(new User("Alert01"));
+//        usersList.add(new User("Alert02"));
+//        usersList.add(new User("Alert03"));
+//        usersList.add(new User("Alert04"));
+//        usersList.add(new User("Alert05"));
     }
 }

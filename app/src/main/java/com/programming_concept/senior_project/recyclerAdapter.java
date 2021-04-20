@@ -37,13 +37,12 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.myView
     @NonNull
     @Override
     public recyclerAdapter.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.health_alerts_list, parent, false);
-        return new myViewHolder(itemView);
+        return new myViewHolder(parent);
     }
 
     @Override
     public void onBindViewHolder(@NonNull recyclerAdapter.myViewHolder holder, int position) {
-        String name = usersList.get(position).getUsername();
+        String name = usersList.get(position).getStudentName();
         holder.nameTxt.setText(name);
 
     }

@@ -4,25 +4,25 @@ package com.programming_concept.senior_project;
 
 public class putPDF{
     public String url;
-    public String name;
+    public String fileName;
 
     public putPDF(){
 
     }
 
     public putPDF(String name, String url) {
-        this.name = name;
+        this.fileName = name;
         this.url = url;
     }
 
     public String getName() {
 
-        return name;
+        return fileName;
     }
 
     public void setName(String name) {
 
-        this.name = name;
+        this.fileName = name;
     }
 
     public String getUrl(){

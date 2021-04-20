@@ -51,7 +51,7 @@ public class PDFFragment extends Fragment {
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference("Senior Project");
 
-        btn.setEnabled(false);
+        //btn.setEnabled(false);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,22 +4,27 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
 
-        <item android:id="@+id/nav_personal_info"
-            android:icon="@drawable/ic_personal_info"
-            android:title="Profile" />
+        <item
+            android:id="@+id/nav_personal_info"
+            android:icon="@drawable/hv_profile_check"
+            android:title="Check In" />
+        <item
+            android:id="@+id/nav_student_info"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="My Information" />
         <item
             android:id="@+id/nav_health_alert"
-            android:icon="@drawable/ic_personal_info"
+            android:icon="@android:drawable/ic_dialog_email"
             android:title="Health Alert" />
 
         <item
             android:id="@+id/nav_pdf"
-            android:icon="@drawable/ic_personal_info"
+            android:icon="@android:drawable/ic_menu_upload_you_tube"
             android:title="PDF Submission" />
 
         <item
             android:id="@+id/nav_questionnair"
-            android:icon="@drawable/ic_personal_info"
+            android:icon="@android:drawable/ic_menu_edit"
             android:title="Questionnair/Symptom Checker" />
 
     </group>
