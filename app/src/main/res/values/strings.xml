@@ -7,6 +7,7 @@
     <string name="server_client_id">722411778653-275u4uoq6kla942t00pkreolp2a727rg.apps.googleusercontent.com</string>
     <string name="upload_pdf_here">Upload PDF Here</string>
     <string name="upload_file">Upload File</string>
+    <string name="upload_image_here">Upload Image Here</string>
     <string name="retrive_file">Retrive File</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

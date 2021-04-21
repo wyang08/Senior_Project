@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.programming_concept.senior_project.R;
+
 import java.util.ArrayList;
 
 public class MemberAdp extends RecyclerView.Adapter<MemberAdp.ViewHolder> {

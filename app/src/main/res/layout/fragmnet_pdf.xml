@@ -9,40 +9,68 @@
 
 
 
-    <EditText android:id="@+id/editView"
-        android:layout_width="250dp"
+    <EditText
+        android:id="@+id/image_url"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:hint="@string/upload_pdf_here"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:hint="@string/upload_image_here"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="50dp"
         android:textSize="30sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:autofillHints=""/>
 
-    <Button
-        android:id="@+id/submit_pdf"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editView"
-        android:layout_centerHorizontal="true"
-        android:text="@string/upload_file"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="30sp"
+        android:hint="Name"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center" />
 
-    <Button
-        android:id="@+id/btnRead"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/user_vaccine"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editView"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="121dp"
-        android:layout_marginBottom="166dp"
-        android:text="@string/retrive_file"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:onClick="retrievePDF"/>
+        android:textSize="30sp"
+        android:hint="Vaccine Name"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/user_date"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:hint="Date: 4/20/2021"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center" />
+
+
+
+        <Button
+            android:id="@+id/submit_pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_url"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            android:text="@string/upload_file"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
 
 </RelativeLayout>

@@ -3,8 +3,6 @@ package com.programming_concept.senior_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,7 +19,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -36,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -67,29 +63,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
                         new ProfileFragment()).commit();
                 break;
-            case R.id.nav_student_info:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
-                        new StudentInfoFragment()).commit();
-                break;
+
             case R.id.nav_health_alert:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
                         new HealthAlertActivity2()).commit();
                 break;
+
             case R.id.nav_pdf:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
                         new PDFFragment()).commit();
                 break;
+
             case R.id.nav_questionnair:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
                         new QuestionnaireFagment()).commit();
                 break;
+
+            case R.id.nav_covid_record:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
+                        new CasesFragment()).commit();
+                break;
+
             case R.id.nav_log_out:
                 signOut();
-//                Intent intent = new Intent(getApplicationContext(), Login.class);
-//                startActivity(intent);
-//                GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder
-//                        (GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut();
                 break;
+
+            case R.id.nav_vaccination_record:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
+                        new VaccinationTotalUSA()).commit();
+
+
         }
 
         return true;
@@ -105,24 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void signOut() {
-//        FirebaseAuth.getInstance().signOut();
-////        GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder
-////                (GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut();
-//        Intent intent = new Intent(getApplicationContext(), Login.class);
-//        startActivity(intent);
 
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
-//        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(this, gso);
-//        googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if (task.isSuccessful()) {
-//                    FirebaseAuth.getInstance().signOut();
-//                    Intent intent = new Intent(getApplicationContext(), Login.class);
-//                    startActivity(intent);
-//                }
-//            }
-//        });
         GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()).signOut().
                 addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
