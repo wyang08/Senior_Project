@@ -51,7 +51,7 @@ public class PDFFragment extends Fragment {
         UploadButton = pdfFragment.findViewById(R.id.submit_pdf);
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Vaccination Record");
+    //        databaseReference = FirebaseDatabase.getInstance().getReference("Vaccination Record");
 
         UploadButton.setEnabled(false);
 
