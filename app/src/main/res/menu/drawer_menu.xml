@@ -27,6 +27,24 @@
             android:icon="@android:drawable/ic_menu_edit"
             android:title="Questionnair/Symptom Checker" />
 
+        <item
+            android:id="@+id/nav_covid_record"
+            android:icon="@drawable/country_fill"
+            android:title="Cases"
+            />
+
+        <item
+            android:id="@+id/nav_vaccination_record"
+            android:icon="@drawable/country_selector"
+            android:title="Vaccination Record"
+            />
+
+        <item
+            android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_baseline_school_24"
+            android:title="Class Schedule"
+            />
+
     </group>
 
     <item android:title="User Portal">

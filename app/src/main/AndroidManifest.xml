@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.programming_concept.senior_project">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
 
     <application
@@ -15,25 +15,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Senior_Project">
-        <activity android:name=".NewUserActivity"></activity>
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/AppTheme1">
+
+        <activity android:name=".SplashActivity" android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".HealthAlertActivity" />
-        <activity android:name=".AdminScreen" />
-        <activity android:name=".Login"></activity>
-        <activity
-            android:name=".PDFFragment"
-            tools:ignore="Instantiatable"></activity>
+
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+
+        <activity android:name=".AdminScreen"/>
+
+
+        <activity android:name=".Login">
+
+        </activity>
+
+
+
+
+
+        <activity android:name=".PDFFragment"
+            tools:ignore="Instantiatable">
+        </activity>
+
     </application>
 
 </manifest>
