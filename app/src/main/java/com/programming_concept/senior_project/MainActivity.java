@@ -64,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new ProfileFragment()).commit();
                 break;
 
+            case R.id.nav_student_info:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
+                        new StudentInfoFragment()).commit();
+                break;
+
             case R.id.nav_health_alert:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
                         new HealthAlertActivity2()).commit();
