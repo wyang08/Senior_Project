@@ -5,15 +5,11 @@ public class Questions {
     public String aQuestions [] = {
 
             "Are you awaiting the results of a COVID-19 Test?",
-            "Have you tested positive for COVID-19 recently?",
             "Have you taken one of the vaccines for COVID-19?(Moderna, Pfizer, Johnson and Johnson Jassen)",
-            "Over the past 48 hours have you been experiencing symptoms of COVID-19?",
 
     };
 
     public String aResponses[] [] = {
-            {"Yes","No"},
-            {"Yes","No"},
             {"Yes","No"},
             {"Yes","No"},
     };
