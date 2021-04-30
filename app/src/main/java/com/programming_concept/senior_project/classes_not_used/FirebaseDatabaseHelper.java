@@ -1,4 +1,4 @@
-package com.programming_concept.senior_project;
+package com.programming_concept.senior_project.classes_not_used;
 
 import androidx.annotation.NonNull;
 
@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.programming_concept.senior_project.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class FirebaseDatabaseHelper {
 
     public FirebaseDatabaseHelper() {
         mDatabase = FirebaseDatabase.getInstance();
-        mReferenceUser = mDatabase.getReference("MXj67_202HdcvvXrwYb");
+        mReferenceUser = mDatabase.getReference("Senior Project");
     }
 
     public void readUserInfo(final DataStatus dataStatus){

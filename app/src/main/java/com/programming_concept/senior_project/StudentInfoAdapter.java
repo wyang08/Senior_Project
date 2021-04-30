@@ -11,20 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-import java.time.chrono.MinguoChronology;
-import java.util.List;
+public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInfoAdapter.MyViewHolder> {
 
-public class MyAdapter extends FirebaseRecyclerAdapter<User, MyAdapter.MyViewHolder> {
-
-    public MyAdapter(@NonNull FirebaseRecyclerOptions<User> options) {
+    public StudentInfoAdapter(@NonNull FirebaseRecyclerOptions<User> options) {
         super(options);
     }
 
     @Override
     protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull final User user) {
         holder.mStudentName.setText(user.getStudentName());
-        holder.mId.setText(user.getId());
-        holder.mVaccinationStatus.setText(user.getVaccinationStatus());
+        holder.mId.setText("ID:" + user.getId());
+        holder.mVaccinationStatus.setText("Status:" + user.getVaccinationStatus());
         holder.mVaccineName.setText(user.getVaccineName());
         //Glide.with(holder.img1.getContext()).load(model.getPurl()).into(holder.img1);
 

@@ -39,28 +39,28 @@ public class NewUserActivity extends AppCompatActivity {
                 user.setVaccinationStatus(mVaccinationStatus_categories_spinner.getSelectedItem().toString());
                 user.setVaccineName(mVaccineName_categories_spinner.getSelectedItem().toString());
 
-                new FirebaseDatabaseHelper().addUser(user, new FirebaseDatabaseHelper.DataStatus() {
-                    @Override
-                    public void DataIsLoaded(List<User> users, List<String> Keys) {
-
-                    }
-
-                    @Override
-                    public void DataIsInserted() {
-                        Toast.makeText(NewUserActivity.this, "Your information has been uploaded successfully", Toast.LENGTH_LONG).show();
-
-                    }
-
-                    @Override
-                    public void DataIsUpdated() {
-
-                    }
-
-                    @Override
-                    public void DataIsDeleted() {
-
-                    }
-                });
+//                new FirebaseDatabaseHelper().addUser(user, new FirebaseDatabaseHelper.DataStatus() {
+//                    @Override
+//                    public void DataIsLoaded(List<User> users, List<String> Keys) {
+//
+//                    }
+//
+//                    @Override
+//                    public void DataIsInserted() {
+//                        Toast.makeText(NewUserActivity.this, "Your information has been uploaded successfully", Toast.LENGTH_LONG).show();
+//
+//                    }
+//
+//                    @Override
+//                    public void DataIsUpdated() {
+//
+//                    }
+//
+//                    @Override
+//                    public void DataIsDeleted() {
+//
+//                    }
+//                });
             }
         });
 
