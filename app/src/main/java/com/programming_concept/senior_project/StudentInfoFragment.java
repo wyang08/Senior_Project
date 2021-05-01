@@ -24,7 +24,7 @@ public class StudentInfoFragment extends Fragment {
 
     private ArrayList<User> dataholder;
     StudentInfoAdapter adapter;
-    MenuItem fav;
+    MenuItem menuItem;
 
 
 
@@ -52,7 +52,7 @@ public class StudentInfoFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.activity_update_data:
                 Intent intent = new Intent(getActivity(), NewUserActivity.class);
-                startActivity(intent);
+                getActivity().startActivity(intent);
                 return true;
 
         }

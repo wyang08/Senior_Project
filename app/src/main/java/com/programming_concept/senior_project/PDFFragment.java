@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ import static android.app.Activity.RESULT_OK;
 public class PDFFragment extends Fragment {
 
     EditText image_url, user_name, vaccine, date;
+    ImageView file_logo, cancel_file, file_search;
     Button UploadButton;
 
 //    private FirebaseAuth mAuth;
@@ -50,12 +52,28 @@ public class PDFFragment extends Fragment {
         date = pdfFragment.findViewById(R.id.user_date);
         UploadButton = pdfFragment.findViewById(R.id.submit_pdf);
 
+        file_logo= pdfFragment.findViewById(R.id.file_logo);
+        file_search= pdfFragment.findViewById(R.id.file_search);
+        cancel_file= pdfFragment.findViewById(R.id.cancel_file);
+
+        file_logo.setVisibility(View.INVISIBLE);
+        cancel_file.setVisibility(View.INVISIBLE);
+
+        cancel_file.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                file_logo.setVisibility(View.INVISIBLE);
+                cancel_file.setVisibility(View.INVISIBLE);
+                file_search.setVisibility(View.VISIBLE);
+            }
+        });
+
         storageReference = FirebaseStorage.getInstance().getReference();
     //        databaseReference = FirebaseDatabase.getInstance().getReference("Vaccination Record");
 
         UploadButton.setEnabled(false);
 
-        image_url.setOnClickListener(new View.OnClickListener() {
+        file_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectPDF();
@@ -79,8 +97,10 @@ public class PDFFragment extends Fragment {
 
             if (requestCode==12 && resultCode == RESULT_OK && data != null && data.getData() != null){
                 UploadButton.setEnabled(true);
-
-                image_url.setText(data.getDataString().substring(data.getDataString().lastIndexOf("/") + 1));
+                file_logo.setVisibility(View.VISIBLE);
+                cancel_file.setVisibility(View.VISIBLE);
+                file_search.setVisibility(View.INVISIBLE);
+                image_url.setText("File ready to upload");
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("Vaccination Record");
@@ -127,6 +147,7 @@ public class PDFFragment extends Fragment {
                         databaseReference.child(databaseReference.push().getKey()).setValue(putPDF);
                         Toast.makeText(getActivity(), "File Upload", Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();
+
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -139,5 +160,5 @@ public class PDFFragment extends Fragment {
         });
 
     }
-
 }
+

@@ -3,7 +3,8 @@ package com.programming_concept.senior_project;
 public class User {
     private String studentName;
     private String id;
-    //private String fileName;
+    private String fileName;
+    private String fileUrl;
     private String vaccineName;
     //private Date dateReceived;
     private String vaccinationStatus;
@@ -14,10 +15,11 @@ public class User {
     public User() {
     }
 
-    public User(String studentName, String id, String vaccineName) {
+    public User(String studentName, String id, String vaccineName, String fileName, String fileUrl) {
         this.studentName = studentName;
         this.id = id;
-        //this.fileName = fileName;
+        this.fileName = fileName;
+        this.fileUrl = fileUrl;
         this.vaccineName = vaccineName;
         //this.dateReceived = dateReceived;
     }
@@ -38,13 +40,21 @@ public class User {
         this.id = id;
     }
 
-//    public String getFileName() {
-//        return fileName;
-//    }
-//
-//    public void setFileName(String fileName) {
-//        this.fileName = fileName;
-//    }
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
 
     public String getVaccineName() {
         return vaccineName;
