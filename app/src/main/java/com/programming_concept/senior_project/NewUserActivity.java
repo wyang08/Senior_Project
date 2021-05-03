@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -23,6 +24,8 @@ public class NewUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         mStudentName_editTxt = (EditText) findViewById(R.id.studentName_editTxt);
         mId_editTxt = findViewById(R.id.id_editTxt);
         mVaccinationStatus_categories_spinner = (Spinner) findViewById(R.id.vaccinationStatus_spinner);
@@ -39,28 +42,28 @@ public class NewUserActivity extends AppCompatActivity {
                 user.setVaccinationStatus(mVaccinationStatus_categories_spinner.getSelectedItem().toString());
                 user.setVaccineName(mVaccineName_categories_spinner.getSelectedItem().toString());
 
-                new FirebaseDatabaseHelper().addUser(user, new FirebaseDatabaseHelper.DataStatus() {
-                    @Override
-                    public void DataIsLoaded(List<User> users, List<String> Keys) {
-
-                    }
-
-                    @Override
-                    public void DataIsInserted() {
-                        Toast.makeText(NewUserActivity.this, "Your information has been uploaded successfully", Toast.LENGTH_LONG).show();
-
-                    }
-
-                    @Override
-                    public void DataIsUpdated() {
-
-                    }
-
-                    @Override
-                    public void DataIsDeleted() {
-
-                    }
-                });
+//                new FirebaseDatabaseHelper().addUser(user, new FirebaseDatabaseHelper.DataStatus() {
+//                    @Override
+//                    public void DataIsLoaded(List<User> users, List<String> Keys) {
+//
+//                    }
+//
+//                    @Override
+//                    public void DataIsInserted() {
+//                        Toast.makeText(NewUserActivity.this, "Your information has been uploaded successfully", Toast.LENGTH_LONG).show();
+//
+//                    }
+//
+//                    @Override
+//                    public void DataIsUpdated() {
+//
+//                    }
+//
+//                    @Override
+//                    public void DataIsDeleted() {
+//
+//                    }
+//                });
             }
         });
 
