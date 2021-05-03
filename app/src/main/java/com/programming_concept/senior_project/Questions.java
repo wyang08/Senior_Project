@@ -28,4 +28,14 @@ public class Questions {
         String response2 = aResponses[a][0];
         return response2;
     }
+
+    public String getResponse3(int a) {
+        String response3 = aResponses[a][0];
+        return response3;
+    }
+
+    public String getResponse4(int a) {
+        String response3 = aResponses[a][0];
+        return response3;
+    }
 }
