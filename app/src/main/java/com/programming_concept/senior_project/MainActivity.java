@@ -89,6 +89,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new CasesFragment()).commit();
                 break;
 
+            case R.id.nav_update_info:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
+                        new UpdateUserFragment()).commit();
+                break;
+
             case R.id.nav_log_out:
                 signOut();
                 break;

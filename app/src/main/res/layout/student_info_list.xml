@@ -30,9 +30,7 @@
             android:id="@+id/studentName_txtView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="123dp"
             android:layout_marginLeft="123dp"
             android:layout_marginTop="19dp"
@@ -43,48 +41,69 @@
 
         <TextView
             android:id="@+id/id_txtView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/studentName_txtView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="164dp"
-            android:layout_marginLeft="164dp"
-            android:layout_marginTop="31dp"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="100dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/healthStatus_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="150dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/studentName_txtView" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/vaccinationStatus_txtView"
             android:layout_width="163dp"
-            android:layout_height="58dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="112dp"
-            android:layout_marginLeft="112dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="125dp"
-            android:layout_marginRight="125dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="200dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
             android:text="TextView"
             android:textSize="18dp" />
 
         <TextView
             android:id="@+id/vaccineName_txtView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/vaccinationStatus_txtView"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="255dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/dateFullyVaccinated_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="315dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="167dp"
             android:layout_marginRight="167dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vaccinationStatus_txtView" />
+            android:textSize="18dp"/>
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="400dp"
+            android:text="Update" />
 
     </RelativeLayout>
 

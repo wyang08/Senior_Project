@@ -2,6 +2,7 @@
 <resources>
     <string-array name="vaccinationStatus_categories">
         <item>Fully Vaccinated</item>
+        <item>Only First Dose</item>
         <item>Not Vaccinated</item>
     </string-array>
 </resources>

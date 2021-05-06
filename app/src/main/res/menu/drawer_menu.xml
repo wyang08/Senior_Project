@@ -13,6 +13,10 @@
             android:icon="@android:drawable/ic_dialog_info"
             android:title="My Information" />
         <item
+            android:id="@+id/nav_update_info"
+            android:icon="@drawable/pngitem_1893504"
+            android:title="Update My Information" />
+        <item
             android:id="@+id/nav_health_alert"
             android:icon="@android:drawable/ic_dialog_email"
             android:title="Health Alert" />

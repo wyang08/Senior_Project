@@ -72,7 +72,7 @@ public class GroupAdp extends RecyclerView.Adapter<GroupAdp.ViewHolder> {
             super(itemView);
             //Assign variable
             tvName = itemView.findViewById(R.id.tv_name);
-            rvMember = itemView.findViewById(R.id.rv_member);
+            //rvMember = itemView.findViewById(R.id.rv_member);
         }
     }
 }

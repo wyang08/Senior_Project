@@ -3,6 +3,7 @@ package com.programming_concept.senior_project;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,12 +30,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.type.Date;
 
 import static android.app.Activity.RESULT_OK;
 
 public class PDFFragment extends Fragment {
 
-    EditText image_url, user_name, vaccine, date;
+    EditText image_url, user_name, studentID, vaccineDate;
+    Spinner healthStatus_spinner, vaccinationStatus_spinner, vaccineName_spinner;
     ImageView file_logo, cancel_file, file_search;
     Button UploadButton;
 
@@ -47,9 +52,13 @@ public class PDFFragment extends Fragment {
         View pdfFragment = inflater.inflate(R.layout.fragmnet_pdf, container, false);
 
         image_url = pdfFragment.findViewById(R.id.image_url);
-        user_name = pdfFragment.findViewById(R.id.user_name);
-        vaccine = pdfFragment.findViewById(R.id.user_vaccine);
-        date = pdfFragment.findViewById(R.id.user_date);
+        //user_name = pdfFragment.findViewById(R.id.user_name); name.getCurrentUser() from Firebase Auth will be used to retrieve user name and set it as such in Firebase
+        studentID = pdfFragment.findViewById(R.id.user_ID);
+        vaccineDate = pdfFragment.findViewById(R.id.vaccineDate);
+        healthStatus_spinner = (Spinner) pdfFragment.findViewById(R.id.healthStatus_spinner);
+        vaccinationStatus_spinner = (Spinner) pdfFragment.findViewById(R.id.vaccinationStatus_spinner);
+        vaccineName_spinner = (Spinner) pdfFragment.findViewById(R.id.vaccineName_spinner);
+
         UploadButton = pdfFragment.findViewById(R.id.submit_pdf);
 
         file_logo= pdfFragment.findViewById(R.id.file_logo);
@@ -65,6 +74,7 @@ public class PDFFragment extends Fragment {
                 file_logo.setVisibility(View.INVISIBLE);
                 cancel_file.setVisibility(View.INVISIBLE);
                 file_search.setVisibility(View.VISIBLE);
+                image_url.setText("");
             }
         });
 
@@ -91,6 +101,7 @@ public class PDFFragment extends Fragment {
 
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
             super.onActivityResult(requestCode, resultCode, data);
@@ -108,15 +119,21 @@ public class PDFFragment extends Fragment {
                 DatabaseReference userRef = ref.child("Student ID");
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String name = user.getDisplayName();
                 String UID = user.getUid();
 
                 UploadButton.setOnClickListener(v -> {
 
-                    VaccinationRecord vaccinationRecord = new VaccinationRecord();
-                    vaccinationRecord.setUser_image_url(data.getDataString().substring(data.getDataString().lastIndexOf("/") + 1));
-                    vaccinationRecord.setName(user_name.getText().toString());
-                    vaccinationRecord.setVaccine(vaccine.getText().toString());
-                    vaccinationRecord.setDate(date.getText().toString());
+                    User vaccinationRecord = new User();
+                    Date date = Date.getDefaultInstance();
+
+                    vaccinationRecord.setPdfUrl(data.getDataString().substring(data.getDataString().lastIndexOf("/") + 1));
+                    vaccinationRecord.setStudentName(user.getDisplayName());
+                    vaccinationRecord.setStudentID(studentID.getText().toString());
+                    vaccinationRecord.setHealthStatus(healthStatus_spinner.getSelectedItem().toString());
+                    vaccinationRecord.setVaccinationStatus(vaccinationStatus_spinner.getSelectedItem().toString());
+                    vaccinationRecord.setVaccineName(vaccineName_spinner.getSelectedItem().toString());
+                    vaccinationRecord.setDateFullyVaccinated(vaccineDate.getText().toString());
 
                     userRef.child(UID).setValue(vaccinationRecord);
 
