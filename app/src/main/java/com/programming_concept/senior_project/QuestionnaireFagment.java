@@ -19,7 +19,7 @@ public class QuestionnaireFagment extends Fragment {
     TextView header1, question1, question2;
     Button submitButton;
 
-//    private Questions aQuestions = new Questions();
+    private Questions aQuestions = new Questions();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
