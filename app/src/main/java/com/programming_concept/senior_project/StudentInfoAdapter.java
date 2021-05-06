@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInfoAdapter.MyViewHolder> {
 
@@ -22,24 +25,55 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull final User user) {
+    protected void onBindViewHolder(@NonNull final MyViewHolder holder, int position, @NonNull final User user) {
+
+
         holder.mStudentName.setText(user.getStudentName());
-        holder.mId.setText("ID:" + user.getId());
+        holder.mId.setText("ID:" + user.getStudentID());
+        holder.mHealthStatus.setText(user.getHealthStatus());
         holder.mVaccinationStatus.setText("Status:" + user.getVaccinationStatus());
         holder.mVaccineName.setText(user.getVaccineName());
-        Glide.with(holder.img1.getContext()).load(user.getFileUrl()).into(holder.img1);
+        holder.mDateFullyVaccinated.setText(user.getDateFullyVaccinated());
+        //Glide.with(holder.img1.getContext()).load(user.getPdfUrl()).into(holder.img1);
+        //holder.updateBtn.setEnabled(false);
 
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(holder.img1.getContext(),ViewPdf.class);
                 intent.putExtra("filename",user.getFileName());
-                intent.putExtra("fileurl",user.getFileUrl());
+                intent.putExtra("fileurl",user.getPdfUrl());
 
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 holder.img1.getContext().startActivity(intent);
             }
         });
+
+//        holder.updateBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (position == 1) {
+//                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+//                    UpdateUserFragment updateUserFragment = new UpdateUserFragment();
+//                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_update_user, updateUserFragment).
+//                            addToBackStack(null).commit();
+//                }
+//                }
+//
+//
+////            public void replaceFragment(Fragment someFragment) {
+////
+////
+////                Fragment updateFragment = new UpdateUserFragment();
+////                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+////                transaction.replace(R.id.fragment_update_user, updateFragment); // give your fragment container id in first parameter
+////                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+////                transaction.commit();
+////
+////            }
+//        });
+
+
 
     }
 
@@ -47,6 +81,7 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.student_info_list,parent,false);
+
         return new MyViewHolder(view);
     }
 
@@ -55,17 +90,28 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
         ImageView img1;
         TextView mStudentName;
         TextView mId;
+        TextView mHealthStatus;
         TextView mVaccinationStatus;
         TextView mVaccineName;
+        TextView mDateFullyVaccinated;
+        Button updateBtn;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
             img1=itemView.findViewById(R.id.img1);
+            updateBtn = itemView.findViewById(R.id.updateBtn);
             mStudentName = (TextView) itemView.findViewById(R.id.studentName_txtView);
+            mHealthStatus = (TextView) itemView.findViewById(R.id.healthStatus_txtView);
             mId = (TextView) itemView.findViewById(R.id.id_txtView);
             mVaccinationStatus = (TextView) itemView.findViewById(R.id.vaccinationStatus_txtView);
             mVaccineName = (TextView) itemView.findViewById(R.id.vaccineName_txtView);
+            mDateFullyVaccinated = (TextView) itemView.findViewById(R.id.dateFullyVaccinated_txtView);
+
+
+
         }
     }
 

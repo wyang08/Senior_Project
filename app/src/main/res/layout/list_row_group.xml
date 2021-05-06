@@ -5,32 +5,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    android:layout_margin="8dp">
+    app:cardUseCompatPadding="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="12dp"
-        android:background="@drawable/gradient_normal"
-        android:textColor="@color/white">
+        android:padding="15dp">
+
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/courseName_txtView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_name"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="123dp"
+            android:layout_marginLeft="123dp"
+            android:layout_marginTop="19dp"
+            android:text="TextView"
+            android:textColor="#000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rv_member"
-            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/id_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="100dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-
-
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
