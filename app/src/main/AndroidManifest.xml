@@ -32,18 +32,11 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-
         <activity android:name=".AdminScreen"/>
-
-
 
         <activity android:name=".Login">
 
         </activity>
-
-
-
-
 
         <activity android:name=".PDFFragment"
             tools:ignore="Instantiatable">

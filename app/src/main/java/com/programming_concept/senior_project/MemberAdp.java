@@ -19,6 +19,7 @@ public class MemberAdp extends RecyclerView.Adapter<MemberAdp.ViewHolder> {
     //Create constructor
     public MemberAdp(ArrayList<String> arrayListMember) {
         this.arrayListMember = arrayListMember;
+
     }
 
     @NonNull

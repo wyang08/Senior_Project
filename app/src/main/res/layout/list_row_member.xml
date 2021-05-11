@@ -6,7 +6,6 @@
     android:orientation="horizontal"
     android:gravity="center"
     android:padding="4dp">
-
     <View
         android:layout_width="8dp"
         android:layout_height="8dp"

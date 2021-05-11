@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:textColor="#fff"
             android:id="@+id/tvLabelTodayDeath"
-            android:text="Today Cases"
+            android:text="Today Death"
             />
 
         <TextView

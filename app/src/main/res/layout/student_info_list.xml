@@ -97,13 +97,13 @@
             android:text="TextView"
             android:textSize="18dp"/>
 
-        <Button
-            android:id="@+id/updateBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginVertical="400dp"
-            android:text="Update" />
+        <!--        <Button-->
+        <!--            android:id="@+id/updateBtn"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_centerHorizontal="true"-->
+        <!--            android:layout_marginVertical="400dp"-->
+        <!--            android:text="Update" />-->
 
     </RelativeLayout>
 

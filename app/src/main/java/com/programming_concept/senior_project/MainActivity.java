@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 signOut();
                 break;
 
-
             case R.id.nav_vaccination_record:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,
                         new VaccinationTotalUSA()).commit();
@@ -138,4 +137,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
     }
+
 }
