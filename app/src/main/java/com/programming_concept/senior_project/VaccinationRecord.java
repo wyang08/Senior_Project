@@ -1,17 +1,18 @@
 package com.programming_concept.senior_project;
 
 public class VaccinationRecord {
-    private String user_name, vaccine, date;
+    private String user_name, vaccine, date, user_image_url;
 
     public VaccinationRecord() {
 
     }
 
-    public VaccinationRecord(String name, String vaccine, String date)
+    public VaccinationRecord(String name, String vaccine, String date, String user_image_url)
     {
         this.user_name = name;
         this.vaccine = vaccine;
         this.date = date;
+        this.user_image_url = user_image_url;
     }
 
     public String getName() {
@@ -33,4 +34,11 @@ public class VaccinationRecord {
         this.date = date;
     }
 
+    public String getUser_image_url() {
+        return user_image_url;
+    }
+
+    public void setUser_image_url(String user_image_url) {
+        this.user_image_url = user_image_url;
+    }
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:elevation="8dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_student_info"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/_67px_pdf_file_icon_svg"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp" />
+
+        <TextView
+            android:id="@+id/studentName_txtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="123dp"
+            android:layout_marginLeft="123dp"
+            android:layout_marginTop="19dp"
+            android:text="TextView"
+            android:textColor="#000"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/id_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="100dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/healthStatus_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="150dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/vaccinationStatus_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="200dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/vaccineName_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="255dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/dateFullyVaccinated_txtView"
+            android:layout_width="163dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="315dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginRight="167dp"
+            android:text="TextView"
+            android:textSize="18dp"/>
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="400dp"
+            android:text="Update" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

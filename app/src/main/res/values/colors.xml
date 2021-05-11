@@ -9,4 +9,11 @@
     <color name="purple_200">#4A1D98</color>
     <color name="purple_700">#170635</color>
     <color name="teal_200">#337797</color>
+
+    <color name="colorTotalConfirmed">#e60000</color>
+    <color name="colorTotalDeath">#999999</color>
+    <color name="colorTotalRecovered">#7bb974</color>
+    <color name="colorNewCases">#591212</color>
+    <color name="colorNewDeath">#755656</color>
+
 </resources>

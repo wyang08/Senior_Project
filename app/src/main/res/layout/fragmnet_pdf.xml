@@ -2,33 +2,139 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".PDFFragment"
+    android:id="@+id/fragment_user_update"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light">
+    android:background="@android:color/background_light"
+    tools:context=".PDFFragment">
 
 
-
-    <EditText android:id="@+id/editView"
-        android:layout_width="250dp"
+    <EditText
+        android:id="@+id/image_url"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:hint="@string/upload_pdf_here"
-        android:layout_centerVertical="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp"
+        android:autofillHints=""
+        android:hint="No File Selected Yet"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:autofillHints=""/>
+        android:textSize="28dp"
+        android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/submit_pdf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editView"
-            android:layout_centerHorizontal="true"
-            android:text="@string/upload_file"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+    <EditText
+        android:id="@+id/user_ID"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="50dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:hint="Enter School ID"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/healthStatus_spinner"
+        android:layout_width="270dp"
+        android:layout_height="41dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="140dp"
+        android:entries="@array/healthStatus_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/vaccinationStatus_spinner"
+        android:layout_width="270dp"
+        android:layout_height="41dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="185dp"
+        android:entries="@array/vaccinationStatus_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_editTxt" />
+
+    <EditText
+        android:id="@+id/vaccineDate"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:hint="Date When Fully Vaccinated"
+        android:inputType="date" />
+
+    <Spinner
+        android:id="@+id/vaccineName_spinner"
+        android:layout_width="270dp"
+        android:layout_height="41dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="280dp"
+        android:entries="@array/vaccinationName_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/file_search"
+        android:layout_width="58dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="420dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nicepng_uc_browser_png_9078783" />
+
+
+
+
+
+
+
+    <ImageView
+        android:id="@+id/file_logo"
+        android:layout_width="51dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="420dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_67px_pdf_file_icon_svg" />
+
+    <ImageView
+        android:id="@+id/cancel_file"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:layout_marginHorizontal="220dp"
+        android:layout_marginVertical="410dp"
+        app:layout_constraintBottom_toTopOf="@+id/file_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/presence_offline" />
+
+    <Button
+        android:id="@+id/submit_pdf"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="500dp"
+        android:text="@string/upload_file"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:iconTint="@color/blue" />
 
 
 </RelativeLayout>

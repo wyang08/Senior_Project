@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".StudentInfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerview_studentInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="0sp"
@@ -20,5 +19,4 @@
         android:layout_marginRight="0sp"
         android:layout_marginBottom="0sp" />
 
-
-</RelativeLayout>
+</FrameLayout>

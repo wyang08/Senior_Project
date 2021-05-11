@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.chaquo.python'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -45,16 +46,35 @@ android {
 }
 
 dependencies {
+    //Dependencies for fetching data from Firebase
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'com.firebaseui:firebase-ui-database:6.3.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.firebase:firebase-auth:20.0.3'
 
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
     implementation 'com.google.firebase:firebase-firestore:22.1.1'
-    implementation 'com.google.android.libraries.places:places:2.4.0'
-    implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-base:17.5.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+
+    implementation('com.google.android.gms:play-services-base:16.0.1') {
+        exclude group: 'com.android.support'
+    }
+    implementation('com.google.android.gms:play-services-basement:16.1.0') {
+        exclude group: 'com.android.support'
+    }
+
+
+    implementation 'com.google.firebase:firebase-messaging:21.0.0'
+
     def nav_version = "2.3.3"
+
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
@@ -63,6 +83,13 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    //JSON MAPPER
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.7.2'
+
+    //Valley Fecth REST API
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     // qrCode
     implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
@@ -81,6 +108,7 @@ dependencies {
 
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // Declare the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
@@ -88,5 +116,12 @@ dependencies {
 
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    // FirebaseUI for Firebase Auth
+    implementation 'com.firebaseui:firebase-ui-auth:6.3.0'
+    // FirebaseUI for Cloud Storage
+    implementation 'com.firebaseui:firebase-ui-storage:6.3.0'
+
+    implementation 'com.karumi:dexter:6.2.1'
 }
 apply plugin: "com.google.gms.google-services"

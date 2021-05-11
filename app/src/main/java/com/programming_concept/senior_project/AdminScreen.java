@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -15,6 +17,7 @@ public class AdminScreen extends AppCompatActivity {
     Button upload;
     EditText user_name, vaccine, date ;
     ImageView imgview;
+    FirebaseAuth mAuth;
 
     ProgressDialog progressDialog ;
 
@@ -31,6 +34,9 @@ public class AdminScreen extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference mRef = database.getReference("Test");
+
+
+        FirebaseUser user = mAuth.getCurrentUser();
 
 
         upload.setOnClickListener(v -> {
