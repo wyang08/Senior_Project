@@ -79,7 +79,7 @@ public class GroupAdp extends RecyclerView.Adapter<GroupAdp.ViewHolder> {
 //                        Log.e("LOG_TAG", "True");
                         for (DataSnapshot HealthStatus: Courselist.getChildren()) {
 //                            Log.e("LOG_TAG", HealthStatus.getValue(String.class));
-                            String condition = "````````````````````````````````Sick````````````````````````````````";
+                            String condition = "Covid Positive";
                             if(condition.equals(HealthStatus.getValue())) {
                                 Log.e("LOG_TAG", "True");
                                 holder.tvName.setTextColor(Color.parseColor("#e60000"));
