@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.internal.maps.zzt;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -28,16 +27,11 @@ import com.google.android.libraries.places.api.model.RectangularBounds;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
-import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 {
@@ -775,7 +769,7 @@ private static final String TAG = "Info: ";
 		assert mapFragment != null;
 		mapFragment.getMapAsync(this);
 
-		String apiKey = getString(R.string.api_key);
+		String apiKey = "AIzaSyDNT25sWBhhNJVD32hchFpcu2ceg4TQQcU";
 		if (!Places.isInitialized()){
 			Places.initialize(getApplicationContext(), apiKey);
 		}
