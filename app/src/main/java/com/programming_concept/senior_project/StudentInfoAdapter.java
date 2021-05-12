@@ -9,14 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInfoAdapter.MyViewHolder> {
 
@@ -29,13 +25,11 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
 
 
         holder.mStudentName.setText(user.getStudentName());
-        holder.mId.setText("ID:" + user.getStudentID());
-        holder.mHealthStatus.setText(user.getHealthStatus());
-        holder.mVaccinationStatus.setText("Status:" + user.getVaccinationStatus());
+        holder.mId.setText(user.getStudentID());
+        holder.mHealthStatus.setText(user.getCovidStatus());
+        holder.mVaccinationStatus.setText(user.getVaccinationStatus());
         holder.mVaccineName.setText(user.getVaccineName());
         holder.mDateFullyVaccinated.setText(user.getDateFullyVaccinated());
-        //Glide.with(holder.img1.getContext()).load(user.getPdfUrl()).into(holder.img1);
-        //holder.updateBtn.setEnabled(false);
 
         holder.img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,32 +42,6 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
                 holder.img1.getContext().startActivity(intent);
             }
         });
-
-//        holder.updateBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (position == 1) {
-//                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
-//                    UpdateUserFragment updateUserFragment = new UpdateUserFragment();
-//                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_update_user, updateUserFragment).
-//                            addToBackStack(null).commit();
-//                }
-//                }
-//
-//
-////            public void replaceFragment(Fragment someFragment) {
-////
-////
-////                Fragment updateFragment = new UpdateUserFragment();
-////                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-////                transaction.replace(R.id.fragment_update_user, updateFragment); // give your fragment container id in first parameter
-////                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-////                transaction.commit();
-////
-////            }
-//        });
-
-
 
     }
 
@@ -98,11 +66,7 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
             img1=itemView.findViewById(R.id.img1);
-            updateBtn = itemView.findViewById(R.id.updateBtn);
             mStudentName = (TextView) itemView.findViewById(R.id.studentName_txtView);
             mHealthStatus = (TextView) itemView.findViewById(R.id.healthStatus_txtView);
             mId = (TextView) itemView.findViewById(R.id.id_txtView);
@@ -110,43 +74,10 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
             mVaccineName = (TextView) itemView.findViewById(R.id.vaccineName_txtView);
             mDateFullyVaccinated = (TextView) itemView.findViewById(R.id.dateFullyVaccinated_txtView);
 
-
-
         }
     }
 
-//    public MyAdapter(){
-//
-//    }
-//
-//    public MyAdapter(List<User> mUserList, List<String> mKeys){
-//        this.mUserList = mUserList;
-//        this.mKeys = mKeys;
-//    }
-//
-//    @NonNull
-//    @Override
-//    public MyAdapter.StudentInfoView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        //View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.student_info_list, parent, false);
-//        return new StudentInfoView(parent);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull MyAdapter.StudentInfoView holder, int position) {
-//        holder.bind(mUserList.get(position), mKeys.get(position));
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return mUserList.size();
-//    }
-
-
-
-    //ArrayList<User> model = new ArrayList<>();
-
-//    public MyAdapter() {
+    //    public MyAdapter() {
 //    }
 //
 //    @Override
@@ -240,6 +171,9 @@ public class StudentInfoAdapter extends FirebaseRecyclerAdapter<User, StudentInf
 //            return mUserList.size();
 //        }
 //    }
+
 }
+
+
 
 

@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 
@@ -78,67 +79,29 @@ public class StudentInfoFragment extends Fragment {
 
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
         //DatabaseReference ref = database.getReference("Vaccination Record");
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        //String name = user.getDisplayName();
+        DatabaseReference ref = database.getReference("/Vaccination Record");
+        DatabaseReference userRef = ref.child("Student ID");
+        String name = user.getDisplayName();
         String UID = user.getUid();
+
+        Query keyQuery = FirebaseDatabase.getInstance().getReference("/Course_ID_Section/CSCI-110-M01");
+//        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("/Vaccination Record/Student ID");
 
 
         FirebaseRecyclerOptions<User> options =
                 new FirebaseRecyclerOptions.Builder<User>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Vaccination Record").child("Student ID"), User.class)
+                        .setIndexedQuery(keyQuery, userRef, User.class)
                         .build();
 
         adapter = new StudentInfoAdapter(options);
         mRecyclerView.setAdapter(adapter);
 
-//        updateBtn.setOnClickListener((View.OnClickListener) this);
-
-
-//        new FirebaseDatabaseHelper().readUserInfo(new FirebaseDatabaseHelper.DataStatus() {
-//            @Override
-//            public void DataIsLoaded(List<User> users, List<String> keys) {
-//                new MyAdapter(users);
-//            }
-//
-//            @Override
-//            public void DataIsInserted() {
-//
-//            }
-//
-//            @Override
-//            public void DataIsUpdated() {
-//
-//            }
-//
-//            @Override
-//            public void DataIsDeleted() {
-//
-//            }
-//        });
 
         return StudentFragment;
     }
 
-//    public void onClick(View view) {
-//        Fragment fragment = null;
-//        switch (view.getId()) {
-//            case R.id.fragment_update_user:
-//                fragment = new UpdateUserFragment();
-//                replaceFragment(fragment);
-//                break;
-//
-//        }
-//    }
-//    public void replaceFragment(Fragment someFragment) {
-//
-//        Fragment updateFragment = new UpdateUserFragment();
-//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//        transaction.replace(R.id.fragment_update_user, updateFragment); // give your fragment container id in first parameter
-//        transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-//        transaction.commit();
-//
-//    }
 
     @Override
     public void onStart() {

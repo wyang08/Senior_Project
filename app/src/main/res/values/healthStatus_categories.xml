@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="healthStatus_categories">
-        <item>Healthy</item>
-        <item>Sick</item>
+        <item>Covid Positive</item>
+        <item>Covid Negative</item>
         <item>Unconfirmed</item>
     </string-array>
 </resources>

@@ -20,10 +20,8 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -52,6 +50,8 @@ public class PDFFragment extends Fragment {
         View pdfFragment = inflater.inflate(R.layout.fragmnet_pdf, container, false);
 
         image_url = pdfFragment.findViewById(R.id.image_url);
+
+
         //user_name = pdfFragment.findViewById(R.id.user_name); name.getCurrentUser() from Firebase Auth will be used to retrieve user name and set it as such in Firebase
         studentID = pdfFragment.findViewById(R.id.user_ID);
         vaccineDate = pdfFragment.findViewById(R.id.vaccineDate);
@@ -79,7 +79,7 @@ public class PDFFragment extends Fragment {
         });
 
         storageReference = FirebaseStorage.getInstance().getReference();
-    //        databaseReference = FirebaseDatabase.getInstance().getReference("Vaccination Record");
+        //        databaseReference = FirebaseDatabase.getInstance().getReference("Vaccination Record");
 
         UploadButton.setEnabled(false);
 
@@ -94,57 +94,56 @@ public class PDFFragment extends Fragment {
     }
 
     private void selectPDF() {
-            Intent intent = new Intent();
-            intent.setType("*/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "PDF File Select"), 12);
+        Intent intent = new Intent();
+        intent.setType("*/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "PDF File Select"), 101);
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==101 && resultCode == RESULT_OK && data != null && data.getData() != null){
+            UploadButton.setEnabled(true);
+            file_logo.setVisibility(View.VISIBLE);
+            cancel_file.setVisibility(View.VISIBLE);
+            file_search.setVisibility(View.INVISIBLE);
+            image_url.setText("File ready to upload");
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference ref = database.getReference("Vaccination Record");
+
+            DatabaseReference userRef = ref.child("Student ID");
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String name = user.getDisplayName();
+            String UID = user.getUid();
+
+            UploadButton.setOnClickListener(v -> {
+
+                User vaccinationRecord = new User();
+                Date date = Date.getDefaultInstance();
+//
+//                    vaccinationRecord.setStudentName(user.getDisplayName());
+//                    vaccinationRecord.setStudentID(studentID.getText().toString());
+//                    vaccinationRecord.setHealthStatus(healthStatus_spinner.getSelectedItem().toString());
+//                    vaccinationRecord.setVaccinationStatus(vaccinationStatus_spinner.getSelectedItem().toString());
+//                    vaccinationRecord.setVaccineName(vaccineName_spinner.getSelectedItem().toString());
+//                    vaccinationRecord.setDateFullyVaccinated(vaccineDate.getText().toString());
+//
+                userRef.child(UID).setValue(vaccinationRecord);
+//
+                uploadPDFFileFirebase(data.getData());
+
+            });
 
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-            super.onActivityResult(requestCode, resultCode, data);
-
-            if (requestCode==12 && resultCode == RESULT_OK && data != null && data.getData() != null){
-                UploadButton.setEnabled(true);
-                file_logo.setVisibility(View.VISIBLE);
-                cancel_file.setVisibility(View.VISIBLE);
-                file_search.setVisibility(View.INVISIBLE);
-                image_url.setText("File ready to upload");
-
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("Vaccination Record");
-
-                DatabaseReference userRef = ref.child("Student ID");
-
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String name = user.getDisplayName();
-                String UID = user.getUid();
-
-                UploadButton.setOnClickListener(v -> {
-
-                    User vaccinationRecord = new User();
-                    Date date = Date.getDefaultInstance();
-
-                    vaccinationRecord.setPdfUrl(data.getDataString().substring(data.getDataString().lastIndexOf("/") + 1));
-                    vaccinationRecord.setStudentName(user.getDisplayName());
-                    vaccinationRecord.setStudentID(studentID.getText().toString());
-                    vaccinationRecord.setHealthStatus(healthStatus_spinner.getSelectedItem().toString());
-                    vaccinationRecord.setVaccinationStatus(vaccinationStatus_spinner.getSelectedItem().toString());
-                    vaccinationRecord.setVaccineName(vaccineName_spinner.getSelectedItem().toString());
-                    vaccinationRecord.setDateFullyVaccinated(vaccineDate.getText().toString());
-
-                    userRef.child(UID).setValue(vaccinationRecord);
-
-                    uploadPDFFileFirebase(data.getData());
-
-                });
-
-            }
-
-        }
-        private void uploadPDFFileFirebase(Uri data) {
+    }
+    private void uploadPDFFileFirebase(Uri data) {
 
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("File is uploading...");
@@ -156,26 +155,47 @@ public class PDFFragment extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                        while (!uriTask.isComplete());
-                        Uri uri = uriTask.getResult();
 
-                        putPDF putPDF = new putPDF(image_url.getText().toString(), uri.toString());
-                        databaseReference.child(databaseReference.push().getKey()).setValue(putPDF);
-                        Toast.makeText(getActivity(), "File Upload", Toast.LENGTH_LONG).show();
-                        progressDialog.dismiss();
+                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                User vaccinationRecord = new User();
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference ref = database.getReference("Vaccination Record");
+                                DatabaseReference userRef = ref.child("Student ID");
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                String UID = user.getUid();
+
+                                //uploadPDFFileFirebase(vaccinationRecord.setPdfUrl(uri.toString()));
+
+                                vaccinationRecord.setPdfUrl(uri.toString());
+                                vaccinationRecord.setStudentName(user.getDisplayName());
+                                vaccinationRecord.setStudentID(studentID.getText().toString());
+                                vaccinationRecord.setCovidStatus(healthStatus_spinner.getSelectedItem().toString());
+                                vaccinationRecord.setVaccinationStatus(vaccinationStatus_spinner.getSelectedItem().toString());
+                                vaccinationRecord.setVaccineName(vaccineName_spinner.getSelectedItem().toString());
+                                vaccinationRecord.setDateFullyVaccinated(vaccineDate.getText().toString());
+//                                putPDF putpdf = new putPDF(image_url.getText().toString(), uri.toString());
+                                userRef.child(UID).setValue(vaccinationRecord);
+
+                                image_url.setText("Information Uploaded!");
+
+
+                                Toast.makeText(getActivity(), "File Upload", Toast.LENGTH_LONG).show();
+                                progressDialog.dismiss();
+                            }
+                        });
 
                     }
-                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
-                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        float percent=(100*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
+                        progressDialog.setMessage("File Uploaded..." + (int) percent + "%");
 
-                        double progress = (100.0* snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
-                        progressDialog.setMessage("File Uploaded..." + (int) progress+ "%");
-
-            }
-        });
+                    }
+                });
 
     }
 }
-

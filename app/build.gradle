@@ -118,9 +118,13 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
 
     // FirebaseUI for Firebase Auth
-    implementation 'com.firebaseui:firebase-ui-auth:6.3.0'
+    implementation 'com.firebaseui:firebase-ui-auth:6.0.2'
     // FirebaseUI for Cloud Storage
     implementation 'com.firebaseui:firebase-ui-storage:6.3.0'
+
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     implementation 'com.karumi:dexter:6.2.1'
 }
