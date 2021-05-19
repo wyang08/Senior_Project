@@ -796,9 +796,6 @@ private static final String TAG = "Info: ";
 			public void onPlaceSelected(@NotNull Place place) {
 			// TODO: Get info about the selected place.
 			Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
-
-
-
 //			googleMap.addMarker(new MarkerOptions().position(Objects.requireNonNull(place.getLatLng())).title("Testing/Vaccine Location"));
 			}
 

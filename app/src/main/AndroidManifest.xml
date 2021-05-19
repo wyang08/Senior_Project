@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.programming_concept.senior_project">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.programming_concept.senior_project">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -9,15 +9,15 @@
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Senior_Project">
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:usesCleartextTraffic="true"
+            android:theme="@style/Theme.Senior_Project">
 
-        <activity android:name=".SplashActivity" android:theme="@style/AppTheme1">
+        <activity android:name=".MapsActivity" android:theme="@style/AppTheme1">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +26,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ViewPdf"></activity>
+        <activity android:name=".ViewPdf" />
 
         <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity android:name=".AdminScreen"/>
@@ -39,7 +39,7 @@
         </activity>
 
         <activity android:name=".PDFFragment"
-            tools:ignore="Instantiatable">
+                tools:ignore="Instantiatable">
         </activity>
 
     </application>
